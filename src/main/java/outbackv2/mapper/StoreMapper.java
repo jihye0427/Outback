@@ -24,7 +24,9 @@ public interface StoreMapper {
 
 	void delete(int no);
 
-	int count();
+	void count(int no);
+
+
 
 	
 

@@ -61,6 +61,7 @@ public class StoreServiceImpl implements StoreService {
 
 	@Override
 	public BoardDto findOne(int no) {
+		mapper.count(no);
 		BoardDto result=mapper.detail(no);
 		return result;
 	}
@@ -79,11 +80,6 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 
-	@Override
-	public int findList() {
-		int result=mapper.count();
-		return result;
-	}
 
 
 

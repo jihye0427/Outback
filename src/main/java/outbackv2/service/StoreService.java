@@ -1,12 +1,8 @@
 package outbackv2.service;
 
-import java.util.List;
-
 import org.springframework.web.servlet.ModelAndView;
 
 import outbackv2.dto.BoardDto;
-import outbackv2.dto.ReplyDto;
-import outbackv2.dto.ReplyReqDto;
 
 public interface StoreService {
 
@@ -20,7 +16,7 @@ public interface StoreService {
 
 	void edit(BoardDto dto);
 
-	int findList();
+
 
 
 

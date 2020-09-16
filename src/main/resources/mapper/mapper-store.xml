@@ -41,6 +41,10 @@
 		select *from reply where board_no=#{board_no}
 	</select>
 	
+	<update id="count">
+		update board set count=count+1 where no=#{no}
+	</update>
+	
 
 
 </mapper>

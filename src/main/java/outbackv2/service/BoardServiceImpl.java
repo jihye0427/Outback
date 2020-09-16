@@ -63,6 +63,7 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 
+	@Transactional
 	@Override
 	public JpaBoardDto detail(Long no) {
 		JpaBoard result=jpaBoardRepository.findById(no)
