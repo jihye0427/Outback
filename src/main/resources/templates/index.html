@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<th:block th:include="/commons/head::commonHead"></th:block>
+	<script type="text/javascript" src="/js/myscript.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/index.css">
+</head>
+<body>
+	<th:block th:insert="/commons/header::header"></th:block>
+	<main>
+	<section id="visual">
+		<h1>visual</h1>
+		<div id="visual-area">
+			<ul>
+				<li class="bg1"></li>
+				<li class="bg2"></li>
+				<li class="bg3"></li>
+				<li class="bg4"></li>
+			</ul>
+		</div>
+		<div id="btn-wrap">
+			<div class="btn view-width">
+				<a href="#" id="prev"></a>
+				<a href="#" id="next"></a>
+			</div>
+		</div>
+		<div id="list-wrap" >
+			<div class="list view-width">
+				<a href="#" onclick="listClick('.bg1')"></a>
+				<a href="#" onclick="listClick('.bg2')"></a>
+				<a href="#" onclick="listClick('.bg3')"></a>
+				<a href="#" onclick="listClick('.bg4')"></a>
+			</div>
+		</div>
+	</section>
+		<h1>메인영역</h1>
+		<div>
+			<section id="main-cf" class="flex-column-center">
+				<h1>youtube cf</h1>
+				<div class="view-width flex-between">
+					<div>
+						<iframe src="https://www.youtube.com/embed/7dVwlbHvV0Q"></iframe>
+					</div>
+					<div class="p">
+						<p class="cf-tit">BRAND CAMPAIGN OUTBACK CF</p>
+						<p class="cf-sub">아웃백 토마호크 스테이크</p>
+						<p class="cf-info">
+						빠져들 수 밖에 없는 예술적인 스테이크<br>
+						아웃백 토마호크 스테이크를 지금 감상해 보세요
+						</p>
+					</div>
+				</div>
+			</section>
+			<section id="academy">
+				<h1>outback steak academy</h1>
+					<div class="flex-center">
+						<img src="/images/main_sec.jpg" alt="outback steak academy">
+					</div>
+			</section>
+			<section th:if="${path != null}">
+				[[${path}]]
+			</section>
+		</div>
+	</main>
+	<th:block th:insert="/commons/footer::footer"></th:block>
+</body>
+</html>

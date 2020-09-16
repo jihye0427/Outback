@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<th:block th:include="/commons/head :: commonHead"></th:block>
+	<link rel="stylesheet" type="text/css" href="/css/sign/join.css">
+</head>
+<body>
+	<div th:insert="/commons/header :: header">
+		<!-- 헤더영역이 포함됩니다. -->
+	</div>
+	<main>
+		<h1>회원가입</h1>
+		<div class="wrap">
+			<div id="content-tit">
+				<p class="tit">회원가입</p>
+				<p class="msg">회원 정보를 입력해 주세요</p>
+			</div>
+			<div id="join">
+				<form action="/user/signup" method="post">
+					<div class="email flex-between">
+						<input type="text" name="id" placeholder="아이디"><button type="button">중복확인</button>
+					</div>
+					
+					<div>
+						<p><a href="#">회원 혜택안내</a></p>
+						<input type="password" name="pw" placeholder="비밀번호">
+						<span class="guide-msg">8 ~ 16자 영문 대소문자, 숫자, 특수문자를 조합해 주세요.</span>
+					</div>
+					<div>
+						<input type="password"  placeholder="비밀번호 확인">
+						<span class="guide-msg">비밀번호를 한번 더 입력해 주세요.</span>
+					</div>
+					<div>
+						<input type="text" name="name" placeholder="이름">
+					</div>
+					<div>
+						<input type="email" name="email" placeholder="이메일">
+					</div>
+					<div>
+						<button type="submit">등록</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+	<div th:insert="/commons/footer :: footer"></div>
+</body>
+</html>

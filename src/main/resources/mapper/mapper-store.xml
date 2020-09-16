@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="outbackv2.mapper.StoreMapper">
+	<select id="list" resultType="outbackv2.dto.BoardDto">
+		  select * from board
+	</select>
+
+	<insert id="write">
+		insert into board(subject, count, writer, content, reg_date, user_ip)
+		values(#{subject},0,#{writer},#{content},now(),#{user_ip})
+		
+	</insert>
+	
+	<select id="detail" resultType="outbackv2.dto.BoardDto">
+		select * from board where no=#{no}
+	</select>
+	
+	<delete id="delete">
+		delete from board where no=#{no}
+	</delete>
+	
+	<update id="edit">
+		update board set subject=#{subject}, content=#{content} where no=#{no}
+	</update>
+	
+	<select id="findAllDesc" resultType="outbackv2.dto.BoardDto">
+		  select * from board order by no desc
+	</select>
+	
+	<select id="getCountOfRows" resultType="int">
+		select count(*) from board
+	</select>
+	
+	<insert id="addReply">
+		insert into reply(board_no, content, writer, reg_date)values(#{board_no} , #{content}, #{writer}, now())
+	</insert>
+	
+	<select id="getReply" resultType="outbackv2.dto.ReplyDto">
+		select *from reply where board_no=#{board_no}
+	</select>
+	
+
+
+</mapper>

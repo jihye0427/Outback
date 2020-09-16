@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<th:block th:include="/commons/head::commonHead"></th:block>
+	<link rel="stylesheet" type="text/css" href="/css/board/detail.css">
+</head>
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 수정 해야함 -->
+	<ul th:each="re:${replyList}">
+		<li>[[${re.writer}]]</li>
+		<li>[[${re.content}]]</li>
+		<li><span>[[${re.reg_date}]]</span></li>
+	</ul>
+
+</body>
+</html>

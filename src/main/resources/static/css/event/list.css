@@ -1,0 +1,172 @@
+@charset "UTF-8";
+@import url("../common.css");
+
+/* /////////////////////////////////////////// */
+/* //////board/list.css/////////////////////////// */
+/* /////////////////////////////////////////// */
+
+#title-img>.img{
+	min-height: 197px;
+	height: 600px;
+	background-image: url("/images/sub_visual_07.jpg");
+	background-repeat: no-repeat;
+	background-size: 1920px auto;
+	background-position: 50% 0;
+	background-color: #000;
+	
+}
+
+#title-img>.img>div{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 62px;
+    padding: 200px 0 200px 0;
+    text-align: center;
+
+}
+
+#title-img>.img>div>span{
+	position: relative;
+    display: inline-block;
+    padding: 0 10px;
+    color: #fff;
+    font-size: 62px;
+    line-height: 62px;
+    letter-spacing: 6.2px;
+    font-weight: 500;
+}
+
+#page-tit p{
+	font-size: 28px;
+	font-weight: 500;
+	padding-top: 50px; 
+}
+
+#page-tit p>span{
+	margin-left: 10px;
+    color: #666;
+    font-size: 14px;
+    font-weight: 400;
+    vertical-align: baseline;
+}
+#board{
+	margin-bottom: 40px;
+	padding-bottom: 200px;
+}
+
+#board ul{
+	border-bottom: 1px solid #eaecef;
+	padding: 26px 10px;
+}
+#board ul.tit{
+	border-top: 2px solid #eaecef;
+	
+	font-weight: 700;
+}
+#board ul li{
+	flex: 1;
+}
+
+#board .wrap .btn{
+	text-align: right;
+	margin-bottom: 10px;
+}
+#board .wrap .btn a{
+	background-color: #cb0000;
+	padding: 0.5em 2em;
+	border-radius: 5%;
+	display: inline-block;
+	color: #fff;
+	font-weight: 700;
+}
+
+#board .contents li input{
+	display: none;
+	
+}
+
+#list-view ul li{
+	width: 600px;
+	height: 600px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+#board>.wrap{
+	display: block;
+}
+
+@media svreen and(max-width:1205px){
+	#list-view{
+		width:100%;
+		position: relative;
+		overflow: hidden;
+		height: 600px;
+	}
+	
+	#list-view ul {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	#list-view ul li{
+		height: 600px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+	
+	#list-view .btn{
+		position: absolute;
+		top: 50%;
+		width:100%;
+		padding: 0 50px;
+		left: 0;
+	}
+	#list-view .btn:hover{
+		cursor: pointer; 
+	}
+	
+}
+
+/* pc 형 버전 */
+@media screen and (min-width:1206px){
+	main>div{
+		width: 1180px;
+		margin: 0 auto;
+	}
+	#list-view{
+		position: relative;
+		width: 1180px;
+		overflow: hidden;
+		height: 600px;
+	}
+	
+	#list-view ul {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	#list-view ul li{
+		min-width:1180px;
+		height: 600px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+	
+	#list-view .btn{
+		position: absolute;
+		top: 50%;
+		width:100%;
+		padding: 0 50px;
+		left: 0;
+	}
+	#list-view .btn:hover{
+		cursor: pointer; 
+	}
+	
+}
