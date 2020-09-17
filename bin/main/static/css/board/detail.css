@@ -73,3 +73,20 @@
 .btn-style{
 	margin-top: 30px;
 }
+
+#reply .write{
+	margin-top: 20px;
+}
+#reply .write>textarea{
+	margin-top: 40px;
+	padding: 0.4em;
+}
+
+#reply .write>button{
+	margin-left: 20px;
+}
+
+#reply .view{
+	margin-top: 50px;
+	
+}

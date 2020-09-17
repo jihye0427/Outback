@@ -3,8 +3,6 @@ package outbackv2.service;
 import java.util.List;
 import java.util.Vector;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -16,10 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import outbackv2.dto.JpaBoardDto;
-import outbackv2.dto.ReplyReqDto;
 import outbackv2.entity.JpaBoard;
 import outbackv2.entity.JpaBoardRepository;
-import outbackv2.entity.ReplyRepository;
 import outbackv2.util.PageMaker;
 
 
@@ -28,9 +24,6 @@ import outbackv2.util.PageMaker;
 public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private JpaBoardRepository jpaBoardRepository;
-	
-	@Autowired
-	private ReplyRepository replyRepository;
 	
 	@Override
 	public ModelAndView list(int page) {

@@ -6,8 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.RowBounds;
 
 import outbackv2.dto.BoardDto;
-import outbackv2.dto.ReplyDto;
-import outbackv2.dto.ReplyReqDto;
 
 @Mapper
 public interface StoreMapper {

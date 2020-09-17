@@ -33,13 +33,6 @@
 		select count(*) from board
 	</select>
 	
-	<insert id="addReply">
-		insert into reply(board_no, content, writer, reg_date)values(#{board_no} , #{content}, #{writer}, now())
-	</insert>
-	
-	<select id="getReply" resultType="outbackv2.dto.ReplyDto">
-		select *from reply where board_no=#{board_no}
-	</select>
 	
 	<update id="count">
 		update board set count=count+1 where no=#{no}

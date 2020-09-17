@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -16,35 +17,35 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-
-@EntityListeners(AuditingEntityListener.class)
+@DynamicInsert
 @NoArgsConstructor
 @Getter
+@EntityListeners(AuditingEntityListener.class)
 @Entity
 public class Reply {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int no;
-	@Column(nullable = false)
-	private int board_no;
-	@Column(nullable = false)
-	private String content;
-	@Column(nullable = false)
-	private String writer;
-	@CreatedDate
-	private LocalDateTime reg_date;
+	long r_no; //댓글 번호
 	
+	@Column(nullable = false)
+	String content;
+	
+	@Column(nullable = false)
+	String writer;
+	
+	@CreatedDate
+	LocalDateTime reg_date;
+	
+	long b_no; //게시글 번호
+
 	@Builder
-	public Reply(int board_no, String content, String writer) {
-		this.board_no = board_no;
+	public Reply(String content, String writer, long b_no) {
+		super();
 		this.content = content;
 		this.writer = writer;
+		this.b_no = b_no;
 	}
 	
-	
-	
-	
-
 	
 	
 

@@ -54,7 +54,7 @@
 				</script>
 				<!-- 수정 페이지 정보 -->
 				<form class="wrap" id="edit" action="/board/edit" method="post">
-					<input th:id="board_no" type="hidden" name="no" th:value="${dto.no}">
+					<input id="b_no" type="hidden" name="no" th:value="${dto.no}">
 					<ul class="board-detail">
 						<li class="subject">
 							<input type="text" name="subject" th:value="${dto.subject}">
@@ -75,9 +75,67 @@
 						</div>
 					</div>
 				</form>
+				<script type="text/javascript">
+				$(function(){
+					
+					//댓글 리스트 불러오는 함수
+					getReplyList();
+					
+					//댓글 등록 함수
+					$("#btn-reply").click(function(){
+						var r_wirter=$("#r_wirter").val();
+						var r_content=$("#r_content").val();
+						var b_no=$("#b_no").val();
+						$.ajax({
+							url:"/reply/reg",
+							type:"post",
+							data:{
+								"writer":r_wirter,
+								"content":r_content,
+								"b_no":b_no},
+								//dto의 이름과 맞게 작성
+							success:function(result){
+								getReplyList();
+								alert(result);
+								$("#r_content").val("");
+								
+							}
+							
+						});
+						
+					}); //클릭 이벤트 등록
+					
+					
+				});
 				
-			
+				function getReplyList(){
+					var b_no=$("#b_no").val();
+					
+					$.ajax({
+						url:"/reply/list",
+						type:"post",
+						data:{"b_no":b_no},
+							//dto의 이름과 맞게 작성
+						success:function(result){
+							$("#reply .view").html(result);
+						}
+						
+					});
+					
+				}
+				</script>
+			<section id="reply">
+				<h1>댓글</h1>
+				<div class="write">
+					<input type="hidden" id="r_wirter" value="test"/>
+					<textarea rows="2" cols="100" id="r_content" placeholder="댓글을 입력해주세요"></textarea>
+					<button class="btn-style" id="btn-reply">댓글</button>
+				</div>
+				<div class="view">
+				</div>
 			</section>
+			</section>
+			
 		</div>
 	</main>
 	<th:block th:insert="/commons/footer::footer"></th:block>

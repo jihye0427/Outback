@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" href="/css/board/replyList.css">
+<body>
+
+	<ul id="replyList" th:each="re:${list}">
+		<li class="writer">[[${re.writer}]]</li>
+		<li class="reg_date">[[${re.reg_date}]]</li>
+		<li class="content">[[${re.content}]]</li>
+	</ul>
+</body>
+</html>
