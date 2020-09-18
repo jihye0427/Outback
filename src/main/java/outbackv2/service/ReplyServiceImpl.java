@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import outbackv2.dto.ReplyDto;
 import outbackv2.dto.ReplyResDto;
@@ -35,6 +36,24 @@ public class ReplyServiceImpl implements ReplyService {
 		
 		return list;
 	}
+
+	@Override
+	public void delete(long r_no) {
+		repository.deleteById(r_no);
+		
+	}
+
+	@Transactional
+	@Override
+	public void edit(ReplyResDto dto) {
+				repository.findById(dto.getR_no())
+				.map(e->e.update(dto.getContent()))
+				.orElse(null);
+		
+		
+	}
+
+
 	
 
 }

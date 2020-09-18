@@ -11,4 +11,8 @@ public interface ReplyService {
 
 	List<ReplyResDto> findAllByB_no(long b_no);
 
+	void delete(long r_no);
+
+	void edit(ReplyResDto dto);
+
 }

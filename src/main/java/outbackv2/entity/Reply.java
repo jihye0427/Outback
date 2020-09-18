@@ -45,6 +45,12 @@ public class Reply {
 		this.writer = writer;
 		this.b_no = b_no;
 	}
+
+	public Reply update(String content) {
+		this.content=content;
+		return this;
+		
+	}
 	
 	
 	

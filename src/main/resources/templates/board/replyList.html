@@ -3,10 +3,61 @@
 <link rel="stylesheet" type="text/css" href="/css/board/replyList.css">
 <body>
 
+<script type="text/javascript">
+$(function(){
+	//수정
+	$(".r_content").dblclick(function(){
+		$(".r_content").removeAttr("readonly");
+		$(".r_content").blur(function(){
+			$(this).addClass("reset-content");
+		});
+		$(this).removeClass("reset-content");
+
+		
+	});
+	
+	$(".reply-edit").click(function(){
+		var r_content=$(this).siblings(".r_content").val();
+		var r_no=$(this).siblings(".r_no").val();
+		
+		$.ajax({
+			url:"/reply/edit/"+r_no,
+			data:{"content":r_content
+				},
+			success:function(result){
+				alert("수정완료");
+				getReplyList();
+			}
+		});
+	});
+
+	//삭제
+	$(".reply-delete").click(function(){
+		var r_no=$(this).siblings(".r_no").val();
+		
+		$.ajax({
+			url:"/reply/delete/"+r_no,
+			success:function(result){
+				getReplyList();
+			
+					
+				}
+			
+		}); 
+	});
+});
+</script>
+
 	<ul id="replyList" th:each="re:${list}">
 		<li class="writer">[[${re.writer}]]</li>
 		<li class="reg_date">[[${re.reg_date}]]</li>
-		<li class="content">[[${re.content}]]</li>
+		<li class="content"><textarea class="r_content reset-content" rows="1" cols="100" readonly="readonly">[[${re.content}]]</textarea>
+			<button class="reply-edit">수정</button>
+			<button class="reply-delete">삭제</button>
+			<input type="hidden" th:value="${re.r_no}" class="r_no">
+	
+		</li>
 	</ul>
 </body>
 </html>
+	

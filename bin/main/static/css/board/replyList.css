@@ -24,5 +24,28 @@
 #replyList .content{
 	font-size: 18px;
     line-height: 40px;
-	
+	margin-top: 8px;
 }
+
+#replyList .r_content{
+	resize: none;
+}
+
+.reset-content{
+	resize: none;
+	background:none;
+	border:none;
+	outline: none;
+}
+
+#replyList .content .reply-delete, .reply-edit{
+	float:right;
+	color: #777;
+	margin-bottom: 4px;
+	font-size: 15px;
+}
+#replyList .content>button{
+	padding: 0 8px;
+}
+
+
