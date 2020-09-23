@@ -32,9 +32,10 @@ public class MemberController {
 	
 	@PostMapping("/user/signup")
 	public ModelAndView join(JoinDto dto) {
-		service.save(dto);
-		ModelAndView mv=new ModelAndView("/member/login"); //html 리턴
-		mv.addObject("userName", dto.getName());
+		
+		ModelAndView mv=service.save(dto);
+		mv.setViewName("/member/login");
+		
 		return mv;
 	}
 	

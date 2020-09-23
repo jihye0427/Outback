@@ -25,10 +25,14 @@
 				</div>
 				
 				<form class="login-form" action="/user/login" method="post">
-					<th:block th:if="${userName != null }">
-						<span class="msg"><strong>[[${userName }]]</strong>님!회원가입을 축하합니다.!
+					<th:block th:if="${msg != null }">
+						<span class="msg"><strong>[[${msg }]]</strong>님!회원가입을 축하합니다.!
 						<br>로그인후 이용가능합니다.</span>
 					</th:block>
+						<th:block th:if="${join_msg != null }">
+						<span class="msg"><strong>[[${join_msg }]]</strong></span>
+					</th:block>
+					
 					<ul >
 						<li>
 							<input id="id" type="text" name="id" maxlength="16" placeholder="아이디"/>

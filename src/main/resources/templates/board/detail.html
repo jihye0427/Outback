@@ -77,33 +77,42 @@
 				</form>
 				<script type="text/javascript">
 				$(function(){
+				
 					
 					//댓글 리스트 불러오는 함수
 					getReplyList();
 					
-				
+	
 					
 					//댓글 등록 함수
 					$("#btn-reply").click(function(){
-						var r_wirter=$("#r_wirter").val();
+						var r_writer=$("#r_writer").val();
 						var r_content=$("#r_content").val();
 						var b_no=$("#b_no").val();
-						$.ajax({
-							url:"/reply/reg",
-							type:"post",
-							data:{
-								"writer":r_wirter,
-								"content":r_content,
-								"b_no":b_no},
-								//dto의 이름과 맞게 작성
-							success:function(result){
-								getReplyList();
-								alert(result);
-								$("#r_content").val("");
+						
+						if(r_content==""){
+							alert("댓글의 내용이 없습니다.");
+						}else{
+							$.ajax({
+								url:"/reply/reg",
+								type:"post",
+								data:{
+									"writer":r_writer,
+									"content":r_content,
+									"b_no":b_no},
+									//dto의 이름과 맞게 작성
+								success:function(result){
+									getReplyList();
+									alert(result);
+									$("#r_content").val("");
+									
+								}
 								
-							}
+							});
 							
-						});
+						}
+					
+				
 						
 					}); //클릭 이벤트 등록
 					
@@ -128,7 +137,7 @@
 			<section id="reply">
 				<h1>댓글</h1>
 				<div class="write">
-					<input type="hidden" id="r_wirter" value="test"/>
+					<input type="hidden" id="r_writer" th:value="test"/>
 					<textarea rows="2" cols="100" id="r_content" placeholder="댓글을 입력해주세요"></textarea>
 					<button class="btn-style" id="btn-reply">댓글</button>
 				</div>
