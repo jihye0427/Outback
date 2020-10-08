@@ -79,9 +79,7 @@ main>.wrap form div input{
 main>.wrap form div span{
 	display: block;
 }
-main>.wrap form .email input{
-	flex: 2;
-}
+
 main>.wrap form button{
 	border: 1px solid #cb0000;
     background-color: #cb0000;
@@ -91,11 +89,12 @@ main>.wrap form button{
 main>.wrap form button[type=submit]{
 	margin-top: 16px;
 }
-main>.wrap form .email button{
-	margin-left: 8px;
-	flex: 1;
-}
+
 main>.wrap form input[type=password]{
 	background-color: #efeff4;
     border: 1px solid #d5d9e2;
+}
+
+#btn-email{
+	margin-top: 30px;
 }
